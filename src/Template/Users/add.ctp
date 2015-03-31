@@ -9,7 +9,7 @@
 		
 		
         <?= $this->Form->input('role', [
-            'options' => ['dietitian' => 'Dietitian', 'Patient' => 'patient']
+            'options' => ['dietitian' => 'Dietitian', 'patient' => 'Patient']
         ]) ?>
    </fieldset>
 <?= $this->Form->button(__('Submit')); ?>

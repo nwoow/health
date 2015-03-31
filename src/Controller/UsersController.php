@@ -9,6 +9,11 @@ use Cake\Network\Exception\NotFoundException;
 
 class UsersController extends AppController
 {
+     public function isAuthorized($user)
+{
+   return true;
+
+}
 
    public function beforeFilter(Event $event)
 {
@@ -16,7 +21,7 @@ class UsersController extends AppController
     // Allow users to register and logout.
     // You should not add the "login" action to allow list. Doing so would
     // cause problems with normal functioning of AuthComponent.
-    $this->Auth->allow(['add', 'logout']);
+    $this->Auth->allow(['logout']);
 }
 
  public function login(){
@@ -24,7 +29,7 @@ class UsersController extends AppController
     $user = $this->Auth->identify();
     if ($user['role'] === 'dietitian') {
         $this->Auth->setUser($user);
-        return $this->redirect(['controller' => 'articles' ,'action' =>'index']);
+        return $this->redirect(['controller' => 'meals' ,'action' =>'index']);
     } 
     else if ($user['role'] === 'patient'){
          $this->Auth->setUser($user);
