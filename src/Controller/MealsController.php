@@ -58,17 +58,16 @@ class MealsController extends AppController
         }
         $this->Flash->error(__('Unable to update your article.'));
     }
-	$meals = TableRegistry::get('Users');
-	// In a controller or table method.
-      $query = $meals
-    ->find()
+	$users = TableRegistry::get('Users')
+    ->find('list', ['valueField' => 'username'])
     ->select(['id' ,'username'])
     ->where(['role' => 'patient']);
-     $data = $query->toArray();
+   $this->set('users', $users);
+     
 	 
 
     $this->set('meal', $meal);
-   $this->set('data', $data);
+ 
 
 			
 			

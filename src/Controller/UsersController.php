@@ -6,7 +6,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
-
+use Cake\ORM\TableRegistry;
 class UsersController extends AppController
 {
      public function isAuthorized($user)
@@ -29,11 +29,11 @@ class UsersController extends AppController
     $user = $this->Auth->identify();
     if ($user['role'] === 'dietitian') {
         $this->Auth->setUser($user);
-        return $this->redirect(['controller' => 'meals' ,'action' =>'index']);
+        return $this->redirect(['controller' => 'users' ,'action' =>'index']);
     } 
     else if ($user['role'] === 'patient'){
          $this->Auth->setUser($user);
-        return $this->redirect(['action' => 'login' ,'controller' => 'users']);
+        return $this->redirect(['action' => 'index' ,'controller' => 'patients']);
     }
     $this->Flash->error(__('Invalid username or password, try again'));
 }
@@ -46,18 +46,19 @@ public function logout()
 
      public function index()
      {
-        $this->set('users', $this->Users->find('all'));
+		 
+		
+		 
+			 $id = $this->Auth->user('id');
+       $articles = TableRegistry::get('Users');
+     $query = $articles->find()
+	    ->where(['id' => $id]);
+       
+     $this->set(compact('query'));
+        
     }
 
-    public function view($id)
-    {
-        if (!$id) {
-            throw new NotFoundException(__('Invalid user'));
-        }
-
-        $user = $this->Users->get($id);
-        $this->set(compact('user'));
-    }
+   
 
     public function add()
     {
