@@ -31,11 +31,13 @@ public function index (){
 	 
 	
 	 
-	 
+	   $meals = TableRegistry::get('Meals');
+     $query1 = $meals->find()
+	    ->where(['user_id' => $id]);
        
        
 	  
-   
+   $this->set(compact('query1'));
       
 }
 	

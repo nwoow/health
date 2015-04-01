@@ -22,9 +22,41 @@
 	 <tr>
         <td> <?php  echo $row->username ; ?></td>
         <td>
-            <?php  echo $row->password ; ?>
+            <?php  echo $row->role ; ?>
         </td>
         
+    </tr>
+  
+  
+ <?php endforeach; ?>
+ </table>
+ 
+ 
+ <?php  
+
+ foreach ($query1 as $row) :
+ 
+ ?>
+  
+   
+  <h3> Patient This is your meal plan assign by dietitian </h3>
+ 
+  <table>
+    <tr>
+        <th>Breakfast</th>
+        <th>Lunch</th>
+		 <th>Dinner</th>
+       
+    </tr>
+	
+	 <tr>
+        <td> <?php  echo $row->breakfast ; ?></td>
+        <td>
+            <?php  echo $row->lunch ; ?>
+        </td>
+         <td>
+            <?php  echo $row->dinner ; ?>
+        </td>
     </tr>
   
   
