@@ -14,7 +14,15 @@ class MealsController extends AppController
 	
 	     public function isAuthorized($user)
 {
-   return true;
+    if ($user['role'] === 'dietitian') {
+		
+		//$this->allow();
+		return true;
+	} else {
+		
+		return false;
+		
+	}
 
 }
 	
@@ -53,7 +61,7 @@ class MealsController extends AppController
     if ($this->request->is(['post', 'put'])) {
         $this->Meals->patchEntity($meal, $this->request->data);
         if ($this->Meals->save($meal)) {
-            $this->Flash->success(__('Your article has been updated.'));
+            $this->Flash->success(__('Your meal has been assigned'));
             return $this->redirect(['action' => 'index']);
         }
         $this->Flash->error(__('Unable to update your article.'));
@@ -65,6 +73,10 @@ class MealsController extends AppController
    $this->set('users', $users);
      
 	 
+	  $id1 = $this->Auth->user('id');
+	 
+	 
+	 $this->set('id', $id1);
 
     $this->set('meal', $meal);
  

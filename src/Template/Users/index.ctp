@@ -4,6 +4,7 @@
 
 <p><?= $this->Html->link("Add Meals", ['action' => 'add' , 'controller' => 'meals']) ?></p>
 <p><?= $this->Html->link("View Meals", ['action' => 'index' ,'controller' => 'meals']) ?></p>
+<p><?= $this->Html->link("Logout", ['action' => 'logout' ,'controller' => 'users']) ?></p>
 <?php  
 
  foreach ($query as $row) :
