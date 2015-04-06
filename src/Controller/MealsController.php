@@ -28,9 +28,10 @@ class MealsController extends AppController
 	
 	public function index (){
 		
+		 $id = $this->Auth->user('id');
 		
-		$this->set('meals', $this->Meals->find('all'));
-			
+		
+	    $this->set('meals', $this->Meals->find('all')->where(["d_id" => $id]));
 	}
 	
 		

@@ -11,7 +11,7 @@ use Cake\ORM\TableRegistry;
 class MessagesController extends AppController
 {
 
-
+    
 
      public function isAuthorized($user)
      {
@@ -54,17 +54,26 @@ class MessagesController extends AppController
 	
 	 public function view($pid)
     {
-      $data = $this->Messages->myMessages();
+		  $user = $this->Auth->user('role');
+		
+		if ($user === 'dietitian') {
+			$data = $this->Messages->pMessages($this->Auth->user('id'));
+			$this->set('data', $data );
+		} elseif ($user === 'patient') {
+		
+     
+	   $data1 = $this->Messages->dMessages($this->Auth->user('id'));
+	   
+	   
+	   $this->set('data1', $data1 );
 	 
-	 foreach ($data as $row){
-	   echo $row->title;
-	 }
-      
-		
-		
+	 
+		  
+		 echo  $this->Auth->user('username');
+		 
 		
     }
 	
 	
-	
+	}
 }

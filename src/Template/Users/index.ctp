@@ -1,10 +1,15 @@
 <!-- File: src/Template/Articles/index.ctp  (edit links added) -->
 
 <h1>Dietitian Dashboard</h1>
+<?php foreach ($query as $row) {
 
+echo $pid = $row->id;
+
+}?>
 <p><?= $this->Html->link("Add Meals", ['action' => 'add' , 'controller' => 'meals']) ?></p>
 <p><?= $this->Html->link("View Meals", ['action' => 'index' ,'controller' => 'meals']) ?></p>
 <p><?= $this->Html->link("Logout", ['action' => 'logout' ,'controller' => 'users']) ?></p>
+<p><?= $this->Html->link("View Messages", ['action' => 'view' ,'controller' => 'messages' ,$pid,]) ?></p>
 <?php  
 
  foreach ($query as $row) :

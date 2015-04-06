@@ -37,12 +37,13 @@ public function index (){
 		
 		
 		 foreach ($query1 as $row) {
+			 $did = $row->d_id;
 			 
-			 
+			   
 		
 		 $meals = TableRegistry::get('Users');
-     $query2 = $meals->find()
-	    ->where(['id' => 2]);
+         $query2 = $meals->find()
+	      ->where(['id' => $did]);
      
        }
 	  
