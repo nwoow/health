@@ -55,7 +55,9 @@ class MessagesController extends AppController
 	 public function view($pid)
     {
 		  $user = $this->Auth->user('role');
+		  echo $user;
 		
+	  $this->set('user', $user );
 		if ($user === 'dietitian') {
 			$data = $this->Messages->pMessages($this->Auth->user('id'));
 			$this->set('data', $data );
@@ -66,7 +68,6 @@ class MessagesController extends AppController
 	   
 	   
 	   $this->set('data1', $data1 );
-	 
 	 
 		  
 		 echo  $this->Auth->user('username');

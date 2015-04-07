@@ -1,8 +1,7 @@
 <?php 
 
-//foreach ($data1 as $row){
-	  // echo $row->title;
-	// }
+echo $user;
+
 
 ?>
 
@@ -27,11 +26,40 @@
 	
 	 <!-- Here is where we iterate through our $articles query object, printing out article info -->
 
-    <?php foreach ($data as $row): ?>
+    <?php 
+	   if ($user === 'patient') { foreach ($data1 as $row):
+	   ?>
+	  
+	
+	
     <tr>
         <td><?= $row->title ?></td>
         
        
     </tr>
-    <?php endforeach; ?>
+    <?php endforeach;
+	   } elseif ($user === 'dietitian') { 
+	   foreach ($data as $row):
+	    ?>
+	  
+
+
+    <tr>
+        <td><?= $row->title ?></td>
+        
+       
+    </tr>
+	  
+	  
+
+   <?php 
+	   
+	   endforeach;
+	   
+	   }
+	   ?>
+	   
+	   
+	   
+	  
 </table>
