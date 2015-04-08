@@ -1,8 +1,6 @@
-<!-- File: src/Template/Articles/index.ctp  (edit links added) -->
-
-<h1>Patient Dashboard</h1>
-
-<p><?= $this->Html->link("Logout", ['action' => 'logout' ,'controller' => 'users']) ?></p>
+<div class="actions columns large-2 medium-3">
+    <h3><?= __('Menu') ?></h3>
+	
 <?php  
 
  foreach ($query as $row) :
@@ -10,8 +8,20 @@
   echo $pid = $row->id;
  echo  $did = $row1->id;
  ?>
-  <p><?= $this->Html->link("Ask"." ".$row1->username."", ['action' => 'add' ,'controller' => 'messages' ,$pid ,$did,]) ?></p>
-  <p><?= $this->Html->link("View Messages", ['action' => 'view' ,'controller' => 'messages' ,$pid,]) ?></p>
+ <ul class="side-nav">
+	
+	<li><p><?= $this->Html->link("Logout", ['action' => 'logout' ,'controller' => 'users']) ?></p></li>
+	<li><p><?= $this->Html->link("View Messages", ['action' => 'view' ,'controller' => 'messages' ,$pid,]) ?></p></li>
+	<li><p><?= $this->Html->link("Ask"." ".$row1->username."", ['action' => 'add' ,'controller' => 'messages' ,$pid ,$did,]) ?></p></li>
+	
+	</div>
+	</ul>
+<div class="mealCategory index large-10 medium-9 columns">
+<h1>Patient Dashboard</h1>
+
+
+  
+  
    
    <h3> Welcome <?php  echo $row->username ; ?> </h3>
 
@@ -70,3 +80,4 @@
  <?php endforeach; ?>
  <?php endforeach; ?>
  </table>
+ </div>

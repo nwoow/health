@@ -74,4 +74,35 @@ public function logout()
         $this->set('user', $user);
     }
 
+	
+	
+	
+	public function addp()
+    {
+		
+		$did = $this->Auth->user('id');
+	$user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to add the user.'));
+        }
+        $this->set('user', $user);
+		$this->set('did', $did);
+    }
+	
+	public function patients()
+    {
+		
+		$id = $this->Auth->user('id');
+		
+		  $meals = TableRegistry::get('Users');
+     $query = $meals->find()
+	    ->where(['did' => $id]);
+		$this->set(compact('query'));
+	}
+	
 }

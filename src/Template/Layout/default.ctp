@@ -31,13 +31,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('base.css') ?>
+	 <?= $this->Html->css('jquery.dataTables.css') ?>
 	 <?= $this->Html->css('select2.css') ?>
 	 <?= $this->Html->script('select2.js') ?>
+	
+	 <?= $this->Html->script('jquery.dataTables.js') ?>
     <?= $this->Html->css('cake.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+	<script>
+	$(document).ready(function() {
+    $('#example').DataTable();
+} );
+	</script>
 </head>
 <body>
     <header>

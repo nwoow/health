@@ -42,8 +42,7 @@ class MessagesController extends AppController
             $this->Flash->error(__('Unable to sendmessage'));
         }
 		
-		
-		
+	
 		$this->set('pid', $pid );
 		$this->set('did', $did );
         $this->set('message', $message);

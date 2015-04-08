@@ -5,7 +5,7 @@
     </ul>
 </div>
 <div class="foods index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+    <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
@@ -30,12 +30,5 @@
     <?php endforeach; ?>
     </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+  
 </div>
