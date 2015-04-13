@@ -10,7 +10,11 @@ use App\Controller\AppController;
  */
 class FoodsController extends AppController
 {
-
+	public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
 
 
    public function isAuthorized($user)

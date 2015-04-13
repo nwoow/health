@@ -12,6 +12,13 @@ use Cake\ORM\TableRegistry;
 class MealCategoryController extends AppController
 {
 	
+	
+		public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
+	
 	  public function isAuthorized($user)
      {
    return true;
@@ -117,4 +124,36 @@ class MealCategoryController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+	
+	public function assign($id = null) {
+		
+		if (!$id) {
+        throw new NotFoundException(__('Invalid meals id'));
+          }
+		   $meal = $this->MealCategory->get($id);
+    if ($this->request->is(['post', 'put'])) {
+        $this->MealCategory->patchEntity($meal, $this->request->data);
+        if ($this->MealCategory->save($meal)) {
+            $this->Flash->success(__('Your meal has been assigned'));
+            return $this->redirect(['action' => 'index']);
+        }
+        $this->Flash->error(__('Unable to update your article.'));
+    }
+		
+			$users = TableRegistry::get('Users')
+    ->find('list', ['valueField' => 'username'])
+    ->select(['id' ,'username'])
+    ->where(['role' => 'patient']);
+   $this->set('users', $users);
+     
+	 
+	  $id1 = $this->Auth->user('id');
+	 
+	 
+	 $this->set('id', $id1);
+
+    $this->set('meal', $meal);
+		
+		
+	}
 }

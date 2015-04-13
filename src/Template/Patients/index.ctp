@@ -8,6 +8,7 @@
   echo $pid = $row->id;
  echo  $did = $row1->id;
  ?>
+
  <ul class="side-nav">
 	
 	<li><p><?= $this->Html->link("Logout", ['action' => 'logout' ,'controller' => 'users']) ?></p></li>
@@ -17,6 +18,8 @@
 	</div>
 	</ul>
 <div class="mealCategory index large-10 medium-9 columns">
+<iframe src="http://www.healthyworld.in/wild-cape-manuka-honey-250g" name="iframename" scrolling="yes" align="center" height = "70%" width = "90%"> 
+</iframe> 
 <h1>Patient Dashboard</h1>
 
 
@@ -56,28 +59,40 @@
  
   <table>
     <tr>
-        <th>Breakfast</th>
-        <th>Lunch</th>
-		 <th>Dinner</th>
+        <th>Item1</th>
+        <th>Item2</th>
+		 <th>Item3</th>
+		 <th>Item4</th>
+		 <th>Category</th>
 		 <th>Assigned By</th>
        
     </tr>
 	
 	 <tr>
-        <td> <?php  echo $row->breakfast ; ?></td>
+        <td> <?php  echo $row->item1 ; ?></td>
         <td>
-            <?php  echo $row->lunch ; ?>
+            <?php  echo $row->item2 ; ?>
         </td>
          <td>
-            <?php  echo $row->dinner ; ?>
+            <?php  echo $row->item3 ; ?>
+        </td>
+		<td>
+            <?php  echo $row->item4 ; ?>
+        </td>
+		<td>
+            <?php  echo $row->category ; ?>
         </td>
 		<td>
             <?php  echo $row1->username ; ?>
         </td>
     </tr>
+	
+	
   
   <?php endforeach; ?>
  <?php endforeach; ?>
  <?php endforeach; ?>
  </table>
+ 
+ 
  </div>

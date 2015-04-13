@@ -9,6 +9,12 @@ use Cake\Network\Exception\NotFoundException;
 use Cake\ORM\TableRegistry;
 class UsersController extends AppController
 {
+
+		public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
      public function isAuthorized($user)
 {
    return true;
@@ -37,6 +43,10 @@ class UsersController extends AppController
     }
     $this->Flash->error(__('Invalid username or password, try again'));
 }
+
+$this->set('_serialize', ['users']);
+
+ 
 }
 
 public function logout()

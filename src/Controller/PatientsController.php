@@ -31,15 +31,15 @@ public function index (){
 		
        
      $this->set(compact('query'));
-      $meals = TableRegistry::get('Meals');
+      $meals = TableRegistry::get('MealCategory');
      $query1 = $meals->find()
-	    ->where(['user_id' => $id]);
+	    ->where(['pid' => $id]);
 		
 		
 		 foreach ($query1 as $row) {
-			 $did = $row->d_id;
+			echo  $did = $row->did;
 			 
-			   
+			  
 		
 		 $meals = TableRegistry::get('Users');
          $query2 = $meals->find()

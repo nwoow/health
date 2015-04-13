@@ -31,7 +31,8 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $mealCategory->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $mealCategory->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $mealCategory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $mealCategory->id)]) ?>
+				 <?= $this->Html->link(__('Assign'), ['action' => 'assign',$mealCategory->id]) ?>
+               
             </td>
         </tr>
 
